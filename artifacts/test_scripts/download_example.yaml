@@ -1,0 +1,8 @@
+- hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Downlaod google.com
+      ansible.builtin.get_url:
+        url: https://www.google.com
+        dest: /download/index.html
