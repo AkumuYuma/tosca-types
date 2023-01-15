@@ -1,0 +1,19 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+imports:
+  - indigo_basic_types: https://raw.githubusercontent.com/AkumuYuma/tosca-types/main/tosca_types/base/basic_types.yaml
+  # https://baltig.infn.it/infn-cloud/tosca-types/-/raw/master/tosca_types/base/basic_types.yaml
+metadata:
+  template_author: Emanuele-Fiorente
+  template_name: compute_with_start_script
+  template_version: 1.0.0
+
+node_types: 
+  tosca.nodes.customized.Compute: 
+    derived_from: tosca.nodes.indigo.Compute
+    metadata: 
+      icon: /images/compute.png
+    interfaces: 
+      Standard: 
+        start: https://raw.githubusercontent.com/AkumuYuma/tosca-types/test_preliminare/artifacts/test_scripts/download_example.sh 
+
