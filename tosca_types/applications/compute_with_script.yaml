@@ -9,12 +9,15 @@ metadata:
   template_name: compute_with_start_script
   template_version: 1.0.0
 
-artifact_types:
-  tosca.artifacts.Implementation.Bash:
-      derived_from: tosca.artifacts.Implementation
-      description: Script artifact for the Unix Bash shell
-      mime_type: application/x-sh
-      file_ext: [ sh ]
+# Nota che nei basic_types non c'è nessuna implementazione per artefatti con estensione .sh quindi devi scriverla per farla funzionare. 
+# Comunque durante il deployment non riesce ad eseguire lo script sh, si lamenta perché vuole un file yaml. Forse questo dipende da Ansible
+# che immagino sia già installato di default sui nodi di tipo indigo.Compute
+# artifact_types:
+#   tosca.artifacts.Implementation.Bash:
+#       derived_from: tosca.artifacts.Implementation
+#       description: Script artifact for the Unix Bash shell
+#       mime_type: application/x-sh
+#       file_ext: [ sh ]
 
 node_types: 
   tosca.nodes.customized.Compute: 
@@ -23,5 +26,5 @@ node_types:
       icon: /images/compute.png
     interfaces: 
       Standard: 
-        start: https://raw.githubusercontent.com/AkumuYuma/tosca-types/test_preliminare/artifacts/test_scripts/download_example.sh 
+        start: https://raw.githubusercontent.com/AkumuYuma/tosca-types/test_preliminare/artifacts/test_scripts/download_example.yaml
 
