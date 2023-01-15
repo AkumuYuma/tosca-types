@@ -32,5 +32,5 @@ node_types:
       icon: /images/compute.png
     interfaces: 
       Standard: 
-        start: https://raw.githubusercontent.com/AkumuYuma/tosca-types/test_preliminare/artifacts/test_scripts/download_example.yaml
+        start: https://raw.githubusercontent.com/AkumuYuma/tosca-types/test_preliminare/artifacts/test_scripts/download_example.yml
 
