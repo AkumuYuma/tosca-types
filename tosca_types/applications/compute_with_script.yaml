@@ -6,7 +6,7 @@ imports:
   # https://baltig.infn.it/infn-cloud/tosca-types/-/raw/master/tosca_types/base/basic_types.yaml
 metadata:
   template_author: Emanuele-Fiorente
-  template_name: compute_with_start_script
+  template_name: starting_script_type
   template_version: 1.0.0
 
 # Nota che nei basic_types non c'è nessuna implementazione per artefatti con estensione .sh quindi devi scriverla per farla funzionare. 
@@ -26,8 +26,8 @@ artifact_types:
 #       file_ext: [ sh ]
 
 node_types: 
-  tosca.nodes.customized.Compute: 
-    derived_from: tosca.nodes.indigo.Compute
+  tosca.nodes.test.ScriptCompute: 
+    derived_from: tosca.nodes.SoftwareComponent 
     metadata: 
       icon: /images/compute.png
     interfaces: 
