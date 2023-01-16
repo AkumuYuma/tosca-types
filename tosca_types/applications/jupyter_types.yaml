@@ -45,7 +45,7 @@ node_types:
         default: dodasts/monitoring-grafana:v1.0.7-monitoring
       iam_url:
         type: string
-        default: "https://iam.cloud.infn.it/"
+        default: "https://iam.recas.ba.infn.it/"
       iam_subject:
         type: string
         required: yes
