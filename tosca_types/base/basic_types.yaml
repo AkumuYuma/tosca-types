@@ -78,7 +78,7 @@ data_types:
         description: The ending sensing time of the search
         required: true 
       geometry: 
-        type: tosca.datatypes.downloader.search-settings.geometry: 
+        type: tosca.datatypes.downloader.search-settings.geometry 
         description: The rectangle to search in 
         required: true 
   
