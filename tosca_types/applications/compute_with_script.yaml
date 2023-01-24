@@ -25,7 +25,7 @@ node_types:
 
     properties: 
       downloading_input:
-        type: tosca.datatypes.downloader.downloading_input:
+        type: tosca.datatypes.downloader.downloading_input
         required: true 
 
     interfaces: 
