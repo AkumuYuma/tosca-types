@@ -139,7 +139,7 @@ data_types:
         description: A map of the providers settings
         required: true 
         entry_schema:
-          type: tosca.datatypes.downlaoder.provider
+          type: tosca.datatypes.downloader.provider
 
 
 
