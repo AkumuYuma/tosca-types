@@ -24,6 +24,108 @@ artifact_types:
     derived_from: tosca.artifacts.Deployment.Image
     description: Docker Container Image
 
+data_types: 
+
+  tosca.datatypes.downloader.search-settings.geometry: 
+    derived_from: tosca.datatypes.Root
+    description: 
+    properties: 
+      lonmin:
+        type: float 
+        description: Minimum longitude
+        required: true
+      latmin:
+        type: float 
+        description: Minimum latitude
+        required: true
+      lonmax:
+        type: float 
+        description: Maximum longitude
+        required: true
+      latmax:
+        type: float 
+        description: Maximum latitude
+        required: true
+
+  tosca.datatypes.downloader.search-settings:
+    derived_from: tosca.datatypes.Root
+    description: 
+    properties: 
+      product-name: 
+        type: string
+        description: The name of the product to download 
+        required: true 
+      init-time: 
+        type: string
+        description: The initial sensing time of the search
+        required: true 
+      end-time: 
+        type: string
+        description: The ending sensing time of the search
+        required: true 
+      geometry: 
+        type: tosca.datatypes.downloader.search-settings.geometry: 
+        description: The rectangle to search in 
+        required: true 
+  
+  tosca.datatypes.downloader.saving-settings: 
+    derived_from: tosca.datatypes.Root
+    description: 
+    properties: 
+      base-path: 
+        type: string
+        description: The path to download the data in
+        required: false
+      ext: 
+        type: string
+        description: The extension of the downloaded images 
+        required: false
+      config-path: 
+        type: string
+        description: The path to save the configuration into 
+        required: true 
+
+  tosca.datatypes.downloader.provider.credentials: 
+    derived_from: tosca.datatypes.Root
+    description: 
+    properties: 
+      credentials: 
+        type: map 
+        entry_schema: 
+          type: string
+
+  tosca.datatypes.downloader.provider: 
+    derived_from: tosca.datatypes.Root 
+    description: 
+    properties: 
+      priority: 
+        type: integer 
+        description: The priority of the provider
+        required: false
+        default: 0 
+      auth: 
+        type: tosca.datatypes.downloader.provider.credentials 
+        descriptions: The credentials for the provider 
+        required: true 
+
+  tosca.datatypes.downloader.downloading_input:
+    derived_from: tosca.datatypes.Root 
+    description: 
+    properties: 
+      search-settings: 
+        type: tosca.datatypes.downloader.search-settings
+        description: The settings for the search 
+        required: true 
+      saving-settings: 
+        type: tosca.datatypes.downloader.saving-settings
+        description: The settings for the saving 
+        required: true 
+      providers: 
+        type: map 
+        description: A map of the providers settings
+        required: true 
+        entry_schema:
+          type: tosca.datatypes.downlaoder.provider
 
 node_types:
 
@@ -89,10 +191,16 @@ node_types:
       server_ip:
         type: string
         default: ""
+
       role_name:
         type: string
         required: false
         default: ansible-role-jupyterhub-env
+
+      downloading_input:
+        type: tosca.datatypes.downloader.downloading_input:
+        required: true 
+
     artifacts:
       ml_role:
         file: git+https://github.com/DODAS-TS/ansible-role-jupyterhub-env,v2.0.6
@@ -100,11 +208,11 @@ node_types:
     interfaces:
       Standard:
         start:
-          implementation: 
-          # https://baltig.infn.it/infn-cloud/tosca-types/raw/master/artifacts/dodas/ansible.yaml
+          implementation: https://github.com/AkumuYuma/tosca-types/blob/main/artifacts/execute_role_and_download_data.yaml
           inputs:
             # input playbook 
             role_name: { get_property: [ SELF, role_name ] } 
+            downloading_input: { get_property: [SELF, downloading_input] }
 
             # Input del ruolo DODAS-TS/ansible-role-jupyterhub
             install_docker: { get_property: [SELF, install_docker] }
