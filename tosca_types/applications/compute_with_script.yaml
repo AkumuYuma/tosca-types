@@ -28,19 +28,19 @@ data_types:
     description: 
     properties: 
       lonmin:
-        # type: float 
+        type: integer 
         description: Minimum longitude
         required: true
       latmin:
-        # type: float 
+        type: integer 
         description: Minimum latitude
         required: true
       lonmax:
-        # type: float 
+        type: integer 
         description: Maximum longitude
         required: true
       latmax:
-        # type: float 
+        type: integer 
         description: Maximum latitude
         required: true
 
