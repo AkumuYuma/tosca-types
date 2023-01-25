@@ -32,6 +32,15 @@ data_types:
         description: The optional user ssh public key
         required: false
 
+  tosca.datatypes.indigo.network.PortSpec:
+    derived_from: tosca.datatypes.network.PortSpec
+    properties:
+      remote_cidr:
+        description: CIDR of the remote allowed IPs.
+        type: string
+        required: no
+
+
 capability_types:
 
   tosca.capabilities.indigo.OperatingSystem:
