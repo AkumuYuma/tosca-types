@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
 
-tasks: 
+- tasks: 
   - name: Create data directory
       ansible.builtin.file:
         path: /data

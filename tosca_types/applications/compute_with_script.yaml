@@ -135,8 +135,6 @@ node_types:
     interfaces: 
       Standard: 
         start: https://raw.githubusercontent.com/AkumuYuma/tosca-types/main/artifacts/download_data.yaml
-        # https://github.com/AkumuYuma/tosca-types/blob/main/artifacts/execute_role_and_download_data.yaml 
-        # https://raw.githubusercontent.com/AkumuYuma/tosca-types/test_preliminare/artifacts/test_scripts/download_example.yml
         inputs: 
           downloading_input: { get_property: [SELF, downloading_input] }
 
