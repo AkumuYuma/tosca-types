@@ -95,6 +95,9 @@ node_types:
         type: string
         required: false
         default: ansible-role-jupyterhub-env
+      downloading_input: 
+        type: string 
+        default: 
     artifacts:
       ml_role:
         file: git+https://github.com/DODAS-TS/ansible-role-jupyterhub-env,v2.0.6
