@@ -110,11 +110,11 @@ data_types:
     description: 
     properties: 
       search_settings: 
-        type: tosca.datatypes.downloader.search-settings
+        type: tosca.datatypes.downloader.search_settings
         description: The settings for the search 
         required: true 
       saving_settings: 
-        type: tosca.datatypes.downloader.saving-settings
+        type: tosca.datatypes.downloader.saving_settings
         description: The settings for the saving 
         required: true 
       providers: 
