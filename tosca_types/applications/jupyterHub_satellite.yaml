@@ -95,11 +95,9 @@ node_types:
         default: ansible-role-jupyterhub-env
 
       downloading_input:
-        type: map 
+        type: string 
         required: false 
-        default: {} 
-        entry_schema: 
-          type: string 
+        default: "" 
 
     artifacts:
       ml_role:
@@ -108,7 +106,7 @@ node_types:
     interfaces:
       Standard:
         start:
-          implementation: https://github.com/AkumuYuma/tosca-types/blob/main/artifacts/execute_role_and_download_data.yaml
+          implementation: https://raw.githubusercontent.com/AkumuYuma/tosca-types/main/artifacts/execute_role_and_download_data.yaml
           inputs:
             # input playbook 
             role_name: { get_property: [ SELF, role_name ] } 
