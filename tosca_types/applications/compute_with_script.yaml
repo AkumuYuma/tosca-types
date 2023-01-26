@@ -48,15 +48,15 @@ data_types:
     derived_from: tosca.datatypes.Root
     description: 
     properties: 
-      product-name: 
+      product_name: 
         type: string
         description: The name of the product to download 
         required: true 
-      init-time: 
+      init_time: 
         type: string
         description: The initial sensing time of the search
         required: true 
-      end-time: 
+      end_time: 
         type: string
         description: The ending sensing time of the search
         required: true 
@@ -69,7 +69,7 @@ data_types:
     derived_from: tosca.datatypes.Root
     description: 
     properties: 
-      base-path: 
+      base_path: 
         type: string
         description: The path to download the data in
         required: false
@@ -77,7 +77,7 @@ data_types:
         type: string
         description: The extension of the downloaded images 
         required: false
-      config-path: 
+      config_path: 
         type: string
         description: The path to save the configuration into 
         required: true 
