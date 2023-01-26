@@ -130,6 +130,5 @@ node_types:
             jupyter_use_gpu: { get_property: [SELF, jupyter_use_gpu] }
             jupyter_post_start_cmd: { get_property: [SELF, jupyter_post_start_cmd] }
             jupyter_host_mount_dir: { get_property: [SELF, jupyter_host_mount_dir] }
-            cvmfs_repos: { get_property: [SELF, cvmfs_repos] }
             server_ip: { get_property: [SELF, server_ip] }
 
