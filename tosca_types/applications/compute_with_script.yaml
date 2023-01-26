@@ -23,7 +23,7 @@ data_types:
   tosca.datatypes.Root:
       description: The TOSCA root Data Type all other TOSCA base Data Types derive from.
 
-  tosca.datatypes.downloader.search-settings.geometry: 
+  tosca.datatypes.downloader.search_settings.geometry: 
     derived_from: tosca.datatypes.Root
     description: 
     properties: 
@@ -44,7 +44,7 @@ data_types:
         description: Maximum latitude
         required: true
 
-  tosca.datatypes.downloader.search-settings:
+  tosca.datatypes.downloader.search_settings:
     derived_from: tosca.datatypes.Root
     description: 
     properties: 
@@ -61,11 +61,11 @@ data_types:
         description: The ending sensing time of the search
         required: true 
       geometry: 
-        type: tosca.datatypes.downloader.search-settings.geometry 
+        type: tosca.datatypes.downloader.search_settings.geometry 
         description: The rectangle to search in 
         required: true 
   
-  tosca.datatypes.downloader.saving-settings: 
+  tosca.datatypes.downloader.saving_settings: 
     derived_from: tosca.datatypes.Root
     description: 
     properties: 
@@ -109,11 +109,11 @@ data_types:
     derived_from: tosca.datatypes.Root 
     description: 
     properties: 
-      search-settings: 
+      search_settings: 
         type: tosca.datatypes.downloader.search-settings
         description: The settings for the search 
         required: true 
-      saving-settings: 
+      saving_settings: 
         type: tosca.datatypes.downloader.saving-settings
         description: The settings for the saving 
         required: true 
