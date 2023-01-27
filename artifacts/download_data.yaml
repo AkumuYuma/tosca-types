@@ -36,6 +36,6 @@
       name: ruamel.yaml 
   
   - name: Download data
-    ansible.builtin.script: /downloader/downloader.py "{{ downloading_input }}"
+    ansible.builtin.script: /downloader/downloader.py "{{ downloading_input[0] }}"
     args:
       executable: python3

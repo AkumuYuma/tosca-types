@@ -126,16 +126,17 @@ data_types:
 node_types: 
   tosca.nodes.test.ScriptCompute: 
     derived_from: tosca.nodes.SoftwareComponent 
-
     properties: 
       downloading_input:
-        type: tosca.datatypes.downloader.downloading_input
+        type: list 
         required: true 
-
+        default: []
+        entry_schema: 
+          type: tosca.datatypes.downloader.downloading_input
     interfaces: 
       Standard: 
         start: https://raw.githubusercontent.com/AkumuYuma/tosca-types/main/artifacts/download_data.yaml
         inputs: 
-          downloading_input: { get_property: [SELF, downloading_input] }
+          downloading_input: { get_property: [ SELF, downloading_input ] }
 
 
