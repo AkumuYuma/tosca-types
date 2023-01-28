@@ -34,8 +34,13 @@
   - name: Install requirements for data download
     ansible.builtin.pip:
       name: ruamel.yaml 
+
+  - name: Printing variable valus
+    ansible.builtin.debug:
+      msg: 
+      - "Variabile: '{{ downloading_input[0] }}'"
   
-  - name: Download data
-    ansible.builtin.script: /downloader/downloader.py "{{ downloading_input[0] }}"
-    args:
-      executable: python3
+  # - name: Download data
+  #   ansible.builtin.script: /downloader/downloader.py "{{ downloading_input[0] }}"
+  #   args:
+  #     executable: python3
